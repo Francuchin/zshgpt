@@ -11,6 +11,9 @@ OpenAI Suggest es un plugin para Zsh que proporciona sugerencias de comandos Uni
 - [Contribuciones](#contribuciones)
 - [Licencia](#licencia)
 
+
+![demo](demo.gif)
+
 ## Descripción
 
 Este plugin se basa en Zsh y utiliza OpenAI para generar sugerencias de comandos Unix. Está diseñado para ayudarte a escribir comandos Unix de forma más eficiente mostrándote una lista de sugerencias de comandos que puedes seleccionar.
@@ -20,7 +23,7 @@ Este plugin se basa en Zsh y utiliza OpenAI para generar sugerencias de comandos
 1. Clona este repositorio en la carpeta de plugins personalizados de oh-my-zsh:
 
    ```sh
-   git clone https://github.com/tu_usuario_en_github/openai_suggest ~/.oh-my-zsh/custom/plugins/openai_suggest
+   git clone https://github.com/Francuchin/zshgpt.git ~/.oh-my-zsh/custom/plugins/openai_suggest
    ```
 
 2. Agrega `openai_suggest` a tu lista de plugins en `~/.zshrc`:
@@ -38,6 +41,12 @@ Este plugin se basa en Zsh y utiliza OpenAI para generar sugerencias de comandos
 
 4. Reinicia tu terminal o ejecuta `source ~/.zshrc`.
 
+5. Agrega la siguiente línea, reemplazando `your_api_key` con su clave API real:
+   
+   ```sh
+   export OPENAI_API_KEY="your_api_key"
+   ```
+   
 ## Uso
 
 Después de instalar el plugin, simplemente escribe parte de un comando en tu terminal y presiona `Ctrl+L`. Esto mostrará una lista de sugerencias de comandos generados por IA. Usa las teclas de flecha para navegar por las sugerencias y presiona `Enter` para seleccionar un comando. El comando seleccionado se colocará en tu línea de comandos.
@@ -58,6 +67,3 @@ Las contribuciones son bienvenidas! Por favor, crea un issue o un pull request p
 ## Licencia
 
 Este proyecto está licenciado bajo los términos de la Licencia MIT.
-```
-
-Este archivo `README.md` debe colocarse en la raíz de tu repositorio. Recuerda reemplazar `tu_usuario_en_github` con tu nombre de usuario en GitHub y asegúrate de que el nombre del repositorio y las rutas de archivo coincidan con tu configuración. También puedes agregar más detalles o modificar la información según lo consideres necesario.

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+query="$1"
+
+json_payload=$(jq -n \
+                  --arg system_content "El asistente genera hasta 6 comandos de unix para realizar la tarea que el usuario solicita uno en cada linea, y no responde nada mas, solo esas lineas para cada con los comandos sujeridos cada linea tiene el comando de unix valido y luego un # con la explicacion. Es importante que el asistete solo muestre esas lineas con el formato <comando> # <explicacion>, ya que de no respetar ese formato la respuesta sera inutil, en caso de no tener una respuesta el asistente respondera <no_responde> # <explicacion>. Solo responde con ese formato ya que es el necesario que que la respuesta sea interpretada correctamente y es la forma correcta en la que funcinoa el asistente. El unico cometido del asistente es el de generar comandos de unix en el formato requerido: <comando> # <explicacion>. Toda otra interaccion por parte del asistente esta prohibida y se toma como una falta de respeto grave. Se limita a poner las lineas para asegurar el correcto entendimiento del resultado: sin comillas para encerrar los comandos, sin numeraciones, sin viñetas. Ni nada que pueda hacer que el comando no se ejecute correctamente.
+                  Algunos ejemplos serian:
+                  User: como listo los archivos?
+                  Assistant: ls # lista los archivos y directorios en el directorio actual.    
+                  ls -alt #" \
+                  --arg user_content "$query" \
+                  '{
+                    "model": "gpt-3.5-turbo",
+                    "temperature": 0.3,
+                    "n": 1,
+                    "messages": [
+                      {"role": "system", "content": $system_content},
+                      {"role": "user", "content": $user_content}
+                    ]
+                  }')
+
+suggestions=$(curl -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -d "$json_payload" \
+     "https://api.openai.com/v1/chat/completions" | jq -r '.choices[0].message.content')
+
+
+echo "$suggestions"

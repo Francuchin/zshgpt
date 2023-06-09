@@ -8,6 +8,7 @@ OpenAI Suggest es un plugin para Zsh que proporciona sugerencias de comandos Uni
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Dependencias](#dependencias)
+- [Configuración de la Clave de la API de OpenAI](#configuración-de-la-clave-de-la-api-de-openai)
 - [Contribuciones](#contribuciones)
 - [Licencia](#licencia)
 
@@ -59,6 +60,41 @@ Después de instalar el plugin, simplemente escribe parte de un comando en tu te
 - [jq](https://stedolan.github.io/jq/)
 - [curl](https://curl.se/)
 - Clave API de OpenAI (necesitarás una clave de API válida de OpenAI y configurarla en el script `suggesai`)
+
+Para poder utilizar el plugin ZshGPT, es necesario tener instaladas ciertas dependencias. A continuación, se describen los pasos para instalar estas dependencias en diferentes sistemas operativos:
+
+### Ubuntu/Debian
+
+Abre la terminal y ejecuta el siguiente comando:
+
+```sh
+sudo apt-get install jq curl fzf
+```
+
+### macOS
+
+Si estás utilizando Homebrew, puedes ejecutar:
+
+```sh
+brew install jq curl fzf
+```
+
+### Windows (WSL)
+
+Si estás utilizando Windows Subsystem for Linux (WSL) con una distribución basada en Debian/Ubuntu, sigue los pasos de Ubuntu/Debian mencionados anteriormente.
+
+## Configuración de la Clave de la API de OpenAI
+
+Para que el plugin funcione, necesitas una clave de API de OpenAI. Una vez que tengas la clave, debes configurarla como una variable de entorno:
+
+1. Abre tu archivo de configuración de la terminal (`~/.zshrc`).
+2. Añade la siguiente línea, reemplazando `tu_clave_api` con tu clave de API real:
+   
+   ```sh
+   export OPENAI_API_KEY="tu_clave_api"
+   ```
+
+Ahora deberías estar listo para usar el plugin ZshGPT en tu terminal.
 
 ## Contribuciones
 

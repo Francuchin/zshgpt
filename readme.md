@@ -41,12 +41,6 @@ Este plugin se basa en Zsh y utiliza OpenAI para generar sugerencias de comandos
    ```
 
 4. Reinicia tu terminal o ejecuta `source ~/.zshrc`.
-
-5. Agrega la siguiente línea, reemplazando `your_api_key` con su clave API real:
-   
-   ```sh
-   export OPENAI_API_KEY="your_api_key"
-   ```
    
 ## Uso
 
